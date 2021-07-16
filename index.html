@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><a href="https://google.com" target="_blank">aタグで別タブ</a></p>
+<p><button onclick="openOther()">JSで別タグ</button></p>
+<p><button onclick="openOtherAsync()">JSで別タグ開いて後からURL設定</button></p>
+<p></p>
+
+<script>
+  function openOther() {
+    window.open('https://google.com')
+  }
+
+  function openOtherAsync() {
+    const windowsRef = window.open()
+    setTimeout(() => {
+      windowsRef.location.href = 'https://google.com'
+    }, 2000)
+  }
+</script>
+</body>
+</html>
