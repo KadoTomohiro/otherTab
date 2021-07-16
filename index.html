@@ -14,6 +14,8 @@
 <p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定 (blank, noopener)</button></p>
 <p><button onclick="openOtherOpenOnly()">JSで別タグだけ開く</button></p>
 <p><button onclick="openOtherAsyncLocation()">JSで別タグ開いて後からURL設定(location)</button></p>
+<p><button onclick="openOtherAsyncBackBeforeHref()">JSで別タグ開いて後から戻る(url設定前)</button></p>
+<p><button onclick="openOtherAsyncBackAfterHref()">JSで別タグ開いて後から戻る(url設定後)</button></p>
 <p></p>
 
 <script>
@@ -53,6 +55,21 @@
       setTimeout(() => {
           windowsRef.location = 'https://google.com'
       }, 2000)
+  }
+
+  function openOtherAsyncBackBeforeHref() {
+      const windowRef = window.open()
+      setTimeout(() => {
+          windowRef.history.back()
+          windowRef.location = "https://google.com"
+      })
+  }
+  function openOtherAsyncBackAfterHref() {
+      const windowRef = window.open()
+      setTimeout(() => {
+          windowRef.location = "https://google.com"
+          windowRef.history.back()
+      })
   }
 </script>
 </body>
