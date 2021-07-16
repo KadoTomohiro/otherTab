@@ -16,6 +16,7 @@
 <p><button onclick="openOtherAsyncLocation()">JSで別タグ開いて後からURL設定(location)</button></p>
 <p><button onclick="openOtherAsyncBackBeforeHref()">JSで別タグ開いて後から戻る(url設定前)</button></p>
 <p><button onclick="openOtherAsyncBackAfterHref()">JSで別タグ開いて後から戻る(url設定後)</button></p>
+<p><button onclick="openOtherAsyncStopBack()">ブラウザバック抑止できるか</button></p>
 <p></p>
 
 <script>
@@ -70,6 +71,18 @@
           windowRef.location = "https://google.com"
           windowRef.history.back()
       }, 2000)
+  }
+
+  function openOtherAsyncStopBack() {
+      const windowsRef = window.open()
+      setTimeout(() => {
+          windowsRef.location.href = 'https://google.com'
+          windowsRef.history.pushState(null, null, windowsRef.location.href);
+          windowsRef.addEventListener('popstate', (e) => {
+              windowsRef.history.go(1);
+          });
+      }, 2000)
+
   }
 </script>
 </body>
