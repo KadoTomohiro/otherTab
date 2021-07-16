@@ -5,21 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<p><a href="https://google.com" target="_blank">aタグで別タブ</a></p>
+<p><a href="https://www.unicode.org/Public/UCD/latest/charts/CodeCharts.pdf" target="_blank">aタグで別タブ</a></p>
 <p><button onclick="openOther()">JSで別タグ</button> <span id="otherTabButton">clicked: <span id="otherTabButtonResult">false</span></span></p>
 <p><button onclick="openOtherAsync()">JSで別タグ開いて後からURL設定</button></p>
 <p></p>
 
 <script>
   function openOther() {
-    window.open('https://google.com')
+    window.open('https://www.unicode.org/Public/UCD/latest/charts/CodeCharts.pdf')
     document.querySelector('#otherTabButtonResult').textContent = 'true'
   }
 
   function openOtherAsync() {
     const windowsRef = window.open()
     setTimeout(() => {
-      windowsRef.location.href = 'https://google.com'
+      windowsRef.location.href = 'https://www.unicode.org/Public/UCD/latest/charts/CodeCharts.pdf'
     }, 2000)
   }
 </script>
