@@ -13,6 +13,7 @@
 <p><button onclick="openOtherAsyncNoreferrer()">JSで別タグ開いて後からURL設定 (blank, noreferrer)</button></p>
 <p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定 (blank, noopener)</button></p>
 <p><button onclick="openOtherOpenOnly()">JSで別タグだけ開く</button></p>
+<p><button onclick="openOtherAsyncLocation()">JSで別タグ開いて後からURL設定(location)</button></p>
 <p></p>
 
 <script>
@@ -24,32 +25,34 @@
       const windowsRef = window.open()
       setTimeout(() => {
           windowsRef.location.href = 'https://google.com'
-          windowsRef.location.rel
       }, 2000)
   }
   function openOtherAsyncBlank() {
       const windowsRef = window.open('', '_blank')
       setTimeout(() => {
           windowsRef.location.href = 'https://google.com'
-          windowsRef.location.rel
       }, 2000)
   }
   function openOtherAsyncNoreferrer() {
     const windowsRef = window.open('', '_blank', 'noreferrer')
     setTimeout(() => {
       windowsRef.location.href = 'https://google.com'
-        windowsRef.location.rel
     }, 2000)
   }
   function openOtherAsyncNoopener() {
       const windowsRef = window.open('', '_blank', 'noopener')
       setTimeout(() => {
           windowsRef.location.href = 'https://google.com'
-          windowsRef.location.rel
       }, 2000)
   }
   function openOtherOpenOnly() {
       window.open()
+  }
+  function openOtherAsyncLocation() {
+      const windowsRef = window.open()
+      setTimeout(() => {
+          windowsRef.location = 'https://google.com'
+      }, 2000)
   }
 </script>
 </body>
