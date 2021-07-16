@@ -17,7 +17,7 @@
 <p><button onclick="openOtherAsyncBackBeforeHref()">JSで別タグ開いて後から戻る(url設定前)</button></p>
 <p><button onclick="openOtherAsyncBackAfterHref()">JSで別タグ開いて後から戻る(url設定後)</button></p>
 <p><button onclick="openOtherAsyncStopBack()">ブラウザバック抑止できるか</button></p>
-<p><button onclick="openOtherAsyncReload()">キャッシュクリアの試み(リロード)</button></p>
+<p><button onclick="openOtherAsyncReload()">キャッシュクリアの試み(リロード)</button>reloaded: <span id="reloaded">false</span></span></p>
 <p></p>
 
 <script>
@@ -87,10 +87,13 @@
 
   function openOtherAsyncReload() {
       const windowsRef = window.open()
-      windowsRef.onpageshow = function(event) {
-          windowsRef.location.reload();
-      };
+      const reloaded = document.querySelector('#reloaded')
 
+      windowsRef.addEventListener('pageshow', () =>{
+          windowsRef.location.reload();
+          alert('reloaded')
+          reloaded.textContent = 'true'
+  })
       setTimeout(() => {
           windowsRef.location.href = 'https://google.com'
       }, 2000)
