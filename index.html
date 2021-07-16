@@ -9,9 +9,9 @@
 <p><a href="https://google.com" target="_blank" rel="noopener noreferrer">aタグで別タブ(noreferrer)</a></p>
 <p><button onclick="openOther()">JSで別タグ</button> <span id="otherTabButton">clicked: <span id="otherTabButtonResult">false</span></span></p>
 <p><button onclick="openOtherAsync()">JSで別タグ開いて後からURL設定</button></p>
-<p><button onclick="openOtherAsyncBlank()">JSで別タグ開いて後からURL設定 (blank)</button></p>
-<p><button onclick="openOtherAsyncNoreferrer()">JSで別タグ開いて後からURL設定 (blank, noreferrer)</button></p>
-<p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定 (blank, noopener)</button></p>
+<p><button onclick="openOtherAsyncBlank()">JSで別タグ開いて後からURL設定(blank)</button></p>
+<p><button onclick="openOtherAsyncNoreferrer()">JSで別タグ開いて後からURL設定(blank, noreferrer)</button></p>
+<p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定(blank, noopener)</button></p>
 <p><button onclick="openOtherOpenOnly()">JSで別タグだけ開く</button></p>
 <p><button onclick="openOtherAsyncLocation()">JSで別タグ開いて後からURL設定(location)</button></p>
 <p><button onclick="openOtherAsyncBackBeforeHref()">JSで別タグ開いて後から戻る(url設定前)</button></p>
@@ -62,14 +62,14 @@
       setTimeout(() => {
           windowRef.history.back()
           windowRef.location = "https://google.com"
-      })
+      }, 2000)
   }
   function openOtherAsyncBackAfterHref() {
       const windowRef = window.open()
       setTimeout(() => {
           windowRef.location = "https://google.com"
           windowRef.history.back()
-      })
+      }, 2000)
   }
 </script>
 </body>
