@@ -12,6 +12,7 @@
 <p><button onclick="openOtherAsyncBlank()">JSで別タグ開いて後からURL設定 (blank)</button></p>
 <p><button onclick="openOtherAsyncNoreferrer()">JSで別タグ開いて後からURL設定 (blank, noreferrer)</button></p>
 <p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定 (blank, noopener)</button></p>
+<p><button onclick="openOtherOpenOnly()">JSで別タグだけ開く</button></p>
 <p></p>
 
 <script>
@@ -46,6 +47,9 @@
           windowsRef.location.href = 'https://google.com'
           windowsRef.location.rel
       }, 2000)
+  }
+  function openOtherOpenOnly() {
+      window.open()
   }
 </script>
 </body>
