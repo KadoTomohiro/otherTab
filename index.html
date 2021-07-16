@@ -9,9 +9,9 @@
 <p><a href="https://google.com" target="_blank" rel="noopener noreferrer">aタグで別タブ(noreferrer)</a></p>
 <p><button onclick="openOther()">JSで別タグ</button> <span id="otherTabButton">clicked: <span id="otherTabButtonResult">false</span></span></p>
 <p><button onclick="openOtherAsync()">JSで別タグ開いて後からURL設定</button></p>
-<p><button onclick="openOtherAsyncBlank()">JSで別タグ開いて後からURL設定(blank)</button></p>
-<p><button onclick="openOtherAsyncNoreferrer()">JSで別タグ開いて後からURL設定(blank, noreferrer)</button></p>
-<p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定(blank, noopener)</button></p>
+<p><button onclick="openOtherAsyncBlank()">JSで別タグ開いて後からURL設定 (blank)</button></p>
+<p><button onclick="openOtherAsyncNoreferrer()">JSで別タグ開いて後からURL設定 (blank, noreferrer)</button></p>
+<p><button onclick="openOtherAsyncNoopener()">JSで別タグ開いて後からURL設定 (blank, noopener)</button></p>
 <p></p>
 
 <script>
@@ -39,13 +39,13 @@
       windowsRef.location.href = 'https://google.com'
         windowsRef.location.rel
     }, 2000)
+  }
   function openOtherAsyncNoopener() {
       const windowsRef = window.open('', '_blank', 'noopener')
       setTimeout(() => {
           windowsRef.location.href = 'https://google.com'
           windowsRef.location.rel
       }, 2000)
-  }
 </script>
 </body>
 </html>
